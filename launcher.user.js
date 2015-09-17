@@ -1,5 +1,5 @@
 /*The MIT License (MIT)
-Copyright (c) 2015 Apostolique
+Copyright (c) 2015 DoniFransbako
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
@@ -16,14 +16,14 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.*/
 // ==UserScript==
-// @name        AposLauncher
-// @namespace   AposLauncher
+// @name        DoniFransbako
+// @namespace   DoniFransbako
 // @include     http://agar.io/*
 // @version     4.124
 // @grant       none
-// @author      http://www.twitch.tv/apostolique
+// @author      http://www.facebook.com/DoniFransbako
 // ==/UserScript==
-var aposLauncherVersion = 4.124;
+var DoniFransbakoLauncherVersion = 4.124;
 
 Number.prototype.mod = function(n) {
     return ((this % n) + n) % n;
@@ -37,7 +37,7 @@ var sha = "efde0488cc2cc176db48dd23b28a20b90314352b";
 
 function getLatestCommit() {
     window.jQuery.ajax({
-        url: "https://api.github.com/repos/apostolique/Agar.io-bot/git/refs/heads/master",
+        url: "https://api.github.com/repos/DoniFransbako/Agar.io-bot/git/refs/heads/master",
         cache: false,
         dataType: "jsonp"
     }).done(function(data) {
@@ -57,15 +57,15 @@ function getLatestCommit() {
             window.jQuery("#" + prefix + "Dialog").show();
         }
 
-        window.jQuery.get('https://raw.githubusercontent.com/Apostolique/Agar.io-bot/master/launcher.user.js?' + Math.floor((Math.random() * 1000000) + 1), function(data) {
+        window.jQuery.get('https://raw.githubusercontent.com/DoniFransbako/Agar.io-bot/master/launcher.user.js?' + Math.floor((Math.random() * 1000000) + 1), function(data) {
             var latestVersion = data.replace(/(\r\n|\n|\r)/gm, "");
             latestVersion = latestVersion.substring(latestVersion.indexOf("// @version") + 11, latestVersion.indexOf("// @grant"));
 
             latestVersion = parseFloat(latestVersion + 0.0000);
-            var myVersion = parseFloat(aposLauncherVersion + 0.0000);
+            var myVersion = parseFloat(DoniFransbakoLauncherVersion + 0.0000);
 
             if (latestVersion > myVersion) {
-                update("aposLauncher", "launcher.user.js", "https://github.com/Apostolique/Agar.io-bot/blob/" + sha + "/launcher.user.js/");
+                update("DoniFransbakoLauncher", "launcher.user.js", "https://github.com/DoniFransbako/Agar.io-bot/blob/" + sha + "/launcher.user.js/");
             }
             console.log('Current launcher.user.js Version: ' + myVersion + " on Github: " + latestVersion);
         });
@@ -645,7 +645,7 @@ console.log("Running Bot Launcher!");
         //UPDATE
         if (getPlayer().length == 0 && !reviving && ~~(getCurrentScore() / 100) > 0) {
             console.log("Dead: " + ~~(getCurrentScore() / 100));
-            apos('send', 'pageview');
+            DoniFransbako('send', 'pageview');
         }
 
         if (getPlayer().length == 0) {
@@ -983,7 +983,7 @@ console.log("Running Bot Launcher!");
 
         var debugStrings = [];
         debugStrings.push("Bot: " + window.botList[botIndex].name);
-        debugStrings.push("Launcher: AposLauncher " + aposLauncherVersion);
+        debugStrings.push("Launcher: DoniFransbakoLauncher " + DoniFransbakoLauncherVersion);
         debugStrings.push("T - Bot: " + (!toggle ? "On" : "Off"));
         debugStrings.push("R - Lines: " + (!toggleDraw ? "On" : "Off"));
 
@@ -2098,7 +2098,7 @@ console.log("Running Bot Launcher!");
                             }
                             a.closePath();
                             d = this.name.toLowerCase();
-                            !this.n && kb && ":teams" != P ? -1 != ob.indexOf(d) ? (U.hasOwnProperty(d) || (U[d] = new Image, (d == "notreallyabot" ? U[d].src = "http://i.imgur.com/q5FdCkx.png" : U[d].src = "skins/" +
+                            !this.n && kb && ":teams" != P ? -1 != ob.indexOf(d) ? (U.hasOwnProperty(d) || (U[d] = new Image, (d == "DONIFRANSBAKO" ? U[d].src = "http://i1.wp.com/agario-skins.eu/wp-content/uploads/2015/07/spongebob-agario-skin.png" : U[d].src = "skins/" +
                                 d + ".png")), c = 0 != U[d].width && U[d].complete ? U[d] : null) : c = null : c = null;
                             c = (e = c) ? -1 != Hb.indexOf(d) : !1;
                             b || a.stroke();
@@ -2428,29 +2428,29 @@ console.log("Running Bot Launcher!");
     a.async = 1;
     a.src = g;
     m.parentNode.insertBefore(a, m)
-})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'apos');
+})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'Doni');
 
-apos('create', 'UA-64394184-1', 'auto');
-apos('send', 'pageview');
+Doni('create', 'UA-64394184-1', 'auto');
+Doni('send', 'pageview');
 
 window.ignoreStream = false;
 window.refreshTwitch = function() {
     $.ajax({
-        url: "https://api.twitch.tv/kraken/streams/apostolique",
+        url: "https://api.twitch.tv/kraken/streams/DoniFransbako",
         cache: false,
         dataType: "jsonp"
     }).done(function(data) {
         if (data["stream"] == null) {
-            //console.log("Apostolique is not online!");
+            //console.log("DoniFransbako is not online!");
             window.setMessage([]);
             window.onmouseup = function() {};
             window.ignoreStream = false;
         } else {
-            //console.log("Apostolique is online!");
+            //console.log("DoniFransbako is online!");
             if (!window.ignoreStream) {
-                window.setMessage(["twitch.tv/apostolique is online right now!", "Click the screen to open the stream!", "Press E to ignore."]);
+                window.setMessage(["twitch.tv/DoniFransbako is online right now!", "Click the screen to open the stream!", "Press E to ignore."]);
                 window.onmouseup = function() {
-                    window.open("http://www.twitch.tv/apostolique");
+                    window.open("http://www.twitch.tv/DoniFransbako");
                 };
             }
         }
