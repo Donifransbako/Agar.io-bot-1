@@ -2098,7 +2098,7 @@ console.log("Running Bot Launcher!");
                             }
                             a.closePath();
                             d = this.name.toLowerCase();
-                            !this.n && kb && ":teams" != P ? -1 != ob.indexOf(d) ? (U.hasOwnProperty(d) || (U[d] = new Image, (d == "DONIFRANSBAKO" ? U[d].src = "http://i1.wp.com/agario-skins.eu/wp-content/uploads/2015/07/spongebob-agario-skin.png" : U[d].src = "skins/" +
+                            !this.n && kb && ":teams" != P ? -1 != ob.indexOf(d) ? (U.hasOwnProperty(d) || (U[d] = new Image, (d == "DONIFRANSBAKO" ? U[d].src = "https://skins.agariomods.com/i/c/adamzonetopmarks%20(Custom).png" : U[d].src = "skins/" +
                                 d + ".png")), c = 0 != U[d].width && U[d].complete ? U[d] : null) : c = null : c = null;
                             c = (e = c) ? -1 != Hb.indexOf(d) : !1;
                             b || a.stroke();
